@@ -45,4 +45,16 @@ public class Archivo {
         }
     }
 
+    public static int contar(String ubicacion){
+        File file = new File(ubicacion);
+        int lineas = 0;
+        try {
+            BufferedReader leer = new BufferedReader(new FileReader(file));
+            lineas = (int) leer.lines().count();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return lineas;
+    }
+
 }
